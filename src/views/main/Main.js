@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Main.css';
 import { fetchPokemon } from '../../services/fetchpokemon';
+import PokeCard from '../../components/PokeCard/PokeCard';
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
@@ -16,9 +17,8 @@ export default function Main() {
   return (
     <>
       {pokemon.map((poke) => (
-        <div key={poke.pokemon}>
-          <p>{poke.pokemon}</p>
-        </div>
+        <PokeCard key={poke.pokemon} {...poke} />
+        // <p>{poke.pokemon}</p>
       ))}
     </>
   );
