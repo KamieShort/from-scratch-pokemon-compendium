@@ -3,12 +3,14 @@ import './Main.css';
 import { fetchPokemon, fetchByType, filterPokemon } from '../../services/fetchpokemon';
 import PokeCard from '../../components/PokeCard/PokeCard';
 import DropdownByType from '../../components/DropdownByType/DropdownByType';
+import Search from '../../components/Search/Search';
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,17 +29,18 @@ export default function Main() {
   useEffect(() => {
     if (!selectedType) return;
     const fetchData = async () => {
-      const data = await filterPokemon(selectedType);
+      const data = await filterPokemon(selectedType, search);
       setPokemon(data);
     };
     fetchData();
-  }, [selectedType]);
+  }, [selectedType, search]);
 
   if (loading) return <div className="loader">Loading...</div>;
 
   return (
     <>
       <DropdownByType types={types} selectedType={selectedType} setSelectedType={setSelectedType} />
+      <Search query={search} setQuery={setSearch} />
       {pokemon.map((poke) => (
         <PokeCard key={poke.pokemon} {...poke} />
       ))}
