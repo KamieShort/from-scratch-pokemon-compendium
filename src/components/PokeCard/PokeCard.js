@@ -1,11 +1,12 @@
 import React from 'react';
 import './PokeCard.css';
 
-export default function PokeCard({ pokemon, ability_1 }) {
+export default function PokeCard({ pokemon, ...poke }) {
   return (
     <div className="poke-div">
       <h3>{pokemon}</h3>
-      <p>{ability_1}</p>
+
+      <img src={`${poke.url_image}`} />
     </div>
   );
 }

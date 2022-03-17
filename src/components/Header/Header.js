@@ -1,3 +1,3 @@
 export default function Header() {
-  return <header>Check Out These Pokemon!!!</header>;
+  return <h1>Check Out These Pokemon!!!</h1>;
 }
