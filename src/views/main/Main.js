@@ -7,14 +7,14 @@ import DropdownByType from '../../components/DropdownByType/DropdownByType';
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
   const [types, setTypes] = useState([]);
-  const [selectedType, setSelectedType] = useState('');
+  const [selectedType, setSelectedType] = useState('all');
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchPokemon();
       setPokemon(data);
       const pokemonData = await fetchByType();
-      setTypes(pokemonData);
+      setTypes(['all', ...pokemonData]);
     };
     fetchData();
   }, []);
