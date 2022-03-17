@@ -1,3 +1,4 @@
+import './Header.css';
 export default function Header() {
-  return <h1>Check Out These Pokemon!!!</h1>;
+  return <h1>Gotta Catch Em All!!!</h1>;
 }

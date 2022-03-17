@@ -1,0 +1,16 @@
+.poke-div {
+  margin-bottom: 150px;
+  font-weight: bold;
+
+  /* justify-content: space-between; */
+}
+
+.img {
+  padding-top: 2px;
+  margin-top: 2px;
+}
+
+h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 50px;
+}
