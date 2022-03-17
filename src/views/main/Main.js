@@ -8,6 +8,7 @@ export default function Main() {
   const [pokemon, setPokemon] = useState([]);
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('all');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +16,10 @@ export default function Main() {
       setPokemon(data);
       const pokemonData = await fetchByType();
       setTypes(['all', ...pokemonData]);
+
+      setTimeout(() => {
+        setLoading(false);
+      }, 750);
     };
     fetchData();
   }, []);
@@ -27,6 +32,8 @@ export default function Main() {
     };
     fetchData();
   }, [selectedType]);
+
+  if (loading) return <div className="loader">Loading...</div>;
 
   return (
     <>
