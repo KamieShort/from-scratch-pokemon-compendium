@@ -13,7 +13,7 @@ export default function Main() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
-  const [input, setInput] = useState('');
+  
 
   useEffect(() => {
     const fetchData = async () => {
