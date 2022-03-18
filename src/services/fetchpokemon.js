@@ -12,7 +12,7 @@ export async function fetchByType() {
   return data.map((item) => item.type);
 }
 
-export async function filterPokemon(type, search) {
+export async function filterPokemon(type, search, sort) {
   const params = new URLSearchParams();
 
   params.set('perPage', 10);
@@ -25,9 +25,15 @@ export async function filterPokemon(type, search) {
     params.set('pokemon', search);
   }
 
+  if (sort) {
+    params.set('sort', 'pokemon');
+    params.set('direction', sort);
+  }
+
   const resp = await fetch(
     `https://pokedex-alchemy.herokuapp.com/api/pokedex?${params.toString()}`
   );
+
   const data = await resp.json();
   return data.results;
 }

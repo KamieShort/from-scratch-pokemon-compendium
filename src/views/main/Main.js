@@ -4,6 +4,7 @@ import { fetchPokemon, fetchByType, filterPokemon } from '../../services/fetchpo
 import PokeCard from '../../components/PokeCard/PokeCard';
 import DropdownByType from '../../components/DropdownByType/DropdownByType';
 import Search from '../../components/Search/Search';
+import Sort from '../../components/Sort/Sort';
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
@@ -11,6 +12,7 @@ export default function Main() {
   const [selectedType, setSelectedType] = useState('all');
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,11 +31,11 @@ export default function Main() {
   useEffect(() => {
     if (!selectedType) return;
     const fetchData = async () => {
-      const data = await filterPokemon(selectedType, search);
+      const data = await filterPokemon(selectedType, search, sort);
       setPokemon(data);
     };
     fetchData();
-  }, [selectedType, search]);
+  }, [selectedType, search, sort]);
 
   if (loading) return <div className="loader">Loading...</div>;
 
@@ -41,6 +43,7 @@ export default function Main() {
     <>
       <DropdownByType types={types} selectedType={selectedType} setSelectedType={setSelectedType} />
       <Search query={search} setQuery={setSearch} />
+      <Sort sort={sort} setSort={setSort} />
       {pokemon.map((poke) => (
         <PokeCard key={poke.pokemon} {...poke} />
       ))}

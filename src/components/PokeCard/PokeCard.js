@@ -11,6 +11,7 @@ export default function PokeCard({ pokemon, ...poke }) {
       <p>HP: {poke.hp}</p>
       <p>Egg Group 1:{poke.egg_group_1}</p>
       <p>Defense:{poke.defense}</p>
+      <p>Shape: {poke.shape}</p>
     </div>
   );
 }
