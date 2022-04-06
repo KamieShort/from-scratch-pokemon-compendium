@@ -1,25 +1,22 @@
-# Alchemy React Base Template
+# Plan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+get pokemon to display on page using fetch api
+add drop down, and onChange to make function (page through)
+add search
+add sort
+style
 
-Use this template for all your "from scratch" deliverables. To start, simply run
+## Rubric
 
-- `npm install`
-- `npm start`
+X Deployed on Netlify with passing CI 2
+X See a loading state while data is being fetched on page load 2
+X See a list of 10 pokemon when the page loads 2
+X See at least 5 details on each character 5
+X Filter the data retrieved using a dropdown 2
+X Search pokemon names using an input 2
+X Sort the data retrieved from the API 2
+X Update state with useEffect 3
 
-## Available Scripts
+## Credits
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Loader CSS: `cssloaders.github.io`
